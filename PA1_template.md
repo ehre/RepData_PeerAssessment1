@@ -21,7 +21,7 @@ if(!file.exists("activity.csv")) {
 ***
 ## Loading and preprocessing the data
 
-1. The csv file was read into memory.
+* 1. The csv file was read into memory.
 
 ```r
 activity <- tbl_df(read.csv("activity.csv"))
@@ -35,7 +35,7 @@ str(activity)
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
 
-2. Then, `activity$date` was changed from factor to POSIXct
+* 2. Then, `activity$date` was changed from factor to POSIXct
 
 ```r
 activity$date <- as.POSIXct(activity$date)
@@ -58,7 +58,7 @@ perDay <- group_by(activity, date)
 sumStepsDay <- summarise(perDay, StepsPerDay = sum(steps))
 ```
 
-1. Histogram of total number of steps per day.
+* 1. Histogram of total number of steps per day.
 
 ```r
 hist(sumStepsDay$StepsPerDay, main = "Histogram of steps per day",
@@ -67,7 +67,7 @@ hist(sumStepsDay$StepsPerDay, main = "Histogram of steps per day",
 
 ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
-2. Calculation of mean and median total number of steps per day.
+* 2. Calculation of mean and median total number of steps per day.
 
 ```r
 mean(sumStepsDay$StepsPerDay, na.rm = T)
@@ -97,7 +97,7 @@ perInterval <- group_by(activity, interval)
 averageStepsInterval <- summarise(perInterval, AvgSteps = mean(steps, na.rm = T))
 ```
 
-1. Time series plot of the 5-minute interval and the average number of steps taken, averaged across all days.
+* 1. Time series plot of the 5-minute interval and the average number of steps taken, averaged across all days.
 
 
 ```r
@@ -107,7 +107,7 @@ print(ggplot(averageStepsInterval, aes(x = interval, y = AvgSteps))
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
 
-2. Which 5-minute interval contains the maximum number of steps?
+* 2. Which 5-minute interval contains the maximum number of steps?
 
 
 ```r
@@ -127,7 +127,7 @@ Thus the 5-minute interval with the maximum number of steps was **835** (and the
 ***
 ## Imputing missing values
 
-1. Total number of missing values in the dataset (i.e. the total number of rows with NAs).
+* 1. Total number of missing values in the dataset (i.e. the total number of rows with NAs).
 
 
 ```r
@@ -156,8 +156,8 @@ summary(activity)
 ```
 Thus, there are in total **2304** rows with NAs in the dataset, and all NAs are in the column `activity$steps`.
 
-2. To fill in all of the missing values in the dataset, a simple strategy was implemented, in which entries with NAs were replaced by the mean number of steps for that 5-minute interval.
-3. A new dataset `activityImputed` was created according to this strategy.
+* 2. To fill in all of the missing values in the dataset, a simple strategy was implemented, in which entries with NAs were replaced by the mean number of steps for that 5-minute interval.
+* 3. A new dataset `activityImputed` was created according to this strategy.
 
 
 ```r
@@ -206,7 +206,7 @@ head(activityImputed)
 ## 6 2.0943396 2012-10-01       25
 ```
 
-4. Grouped per day, summarised, and created histogram of total number of steps per day (with imputed values).
+* 4. Grouped per day, summarised, and created histogram of total number of steps per day (with imputed values).
 
 
 ```r
@@ -218,7 +218,7 @@ hist(sumStepsDayImp$StepsPerDay, main = "Histogram of steps per day (imputed)",
 
 ![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png) 
 
-5. Calculation of mean and median total number of steps per day (with imputed values).
+* 5. Calculation of mean and median total number of steps per day (with imputed values).
 
 
 ```r
@@ -241,7 +241,8 @@ Thus, the *mean* total number of steps per day was **10766**, and the *median* n
 ***
 ## Are there differences in activity patterns between weekdays and weekends?
 
-1. Created a new factor variable in the dataset with two levels – “weekday” and “weekend”. *NOTE to persons grading this assignment - I did this work on a Swedish system, hence the use of "Lördag" (Saturday) and "Söndag" (Sunday) in the following code.*
+* 1. Created a new factor variable in the dataset with two levels – “weekday” and “weekend”.
+*NOTE to persons grading this assignment - I did this work on a Swedish system, hence the use of "Lördag" (Saturday) and "Söndag" (Sunday) in the following code.*
 
 
 ```r
@@ -256,7 +257,7 @@ for(i in 1:nrow(activityImputed)) {
 }
 ```
 
-2. Panel plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days.
+* 2. Panel plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days.
 
 
 ```r
