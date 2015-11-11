@@ -86,7 +86,7 @@ Thus the 5-minute interval with the maximum number of steps was **`r maxStepsInt
 table(is.na(activity))
 summary(activity)
 ```
-Thus, there are in total **`r sum(is.na(activity$steps))`** rows with NAs in the dataset, and all NAs are in the column `activity$steps.
+Thus, there are in total **`r sum(is.na(activity$steps))`** rows with NAs in the dataset, and all NAs are in the column `activity$steps`.
 
 2. To fill in all of the missing values in the dataset, a simple strategy was implemented, in which entries with NAs were replaced by the mean number of steps for that 5-minute interval.
 3. A new dataset `activityImputed` was created according to this strategy.
