@@ -1,3 +1,7 @@
+## Reproducible Research: Peer Assessment 1
+This repository contains an assignment in the course *Reproducible Research* held by Johns Hopkins university and Coursera. To view my final submission, inspect the file **PA1_template.MD**.
+
+## ORIGINAL README.md (forked from Roger D. Peng)
 ## Introduction
 
 It is now possible to collect a large amount of data about personal
