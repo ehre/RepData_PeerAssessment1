@@ -1,9 +1,3 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
 # Reproducible Research: Peer Assessment 1
 
 The following is an assignment in the course *Reproducible Research* held by Johns Hopkins university and Coursera. For further information, see the file **README.md** in this repository.
@@ -160,7 +154,7 @@ summary(activity)
 ##  Max.   :806.00   Max.   :2012-11-30 00:00:00   Max.   :2355.0  
 ##  NA's   :2304
 ```
-Thus, there are in total **2304** rows with NAs in the dataset.
+Thus, there are in total **2304** rows with NAs in the dataset, and all NAs are in the column `activity$steps.
 
 2. To fill in all of the missing values in the dataset, a simple strategy was implemented, in which entries with NAs were replaced by the mean number of steps for that 5-minute interval.
 3. A new dataset `activityImputed` was created according to this strategy.
